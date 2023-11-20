@@ -10,7 +10,15 @@
 <body>
     <h1>Custom Age Calculator and Birthday Celebrator</h1>
     <p id="customMessage"></p>
-    <button type="button" onclick=myFunction()>Calculate</button>
+    <form id="form">
+        <label for="name">Enter your name</label>
+        <input type="text" name="name" id="name">
+        <br>
+        <label for="date">Enter your date of birth</label>
+        <input type="date" name="date" id="date">
+        <br>
+        <button type="button" onclick=calculateAge()>Calculate</button>
+    </form>
 
     <script src="js/script.js"></script>
 </body>
