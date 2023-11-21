@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-
-</head>
-<body>
-    <h1>Custom Age Calculator and Birthday Celebrator</h1>
-    <p id="customMessage"></p>
-    <form id="form">
-        <label for="name">Enter your name</label>
-        <input type="text" name="name" id="name">
-        <br>
-        <label for="date">Enter your date of birth</label>
-        <input type="date" name="date" id="date">
-        <br>
-        <button type="button" onclick=calculateAge()>Calculate</button>
-    </form>
-
-    <script src="js/script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CCT360 JavaScript Lab</title>
+        <script src="js/script.js">
+            var firstName = "Joaquin";
+            var lastName = "Pacia";
+            var fullName = firstName + " " + lastName;
+            var yearOfBirth = 2003;
+            var currentYear = 2023;
+            var age = currentYear - yearOfBirth;
+            var email = "joaquin.pacia@mail.utoronto.ca";
+            var couponValue = 1000;
+            var message;
+            message =
+                "Welcome " +
+                fullName +
+                "!" +
+                " You have turned " +
+                age +
+                " years old. Congratulations for getting old. " +
+                "But worry not, we have a coupon for you." +
+                " We have sent you a $" +
+                couponValue +
+                " coupon to your email address: " +
+                "<a href=\"mailto:" + email + "\">" + email + "</a>";
+        </script>
+    </head>
+    <body>
+        <h1>Age calculator and birthday wishes system.</h1>
+        <h3 id="message"></h3>
+        <!-- External javascript button -->
+        <button type="button" onclick="customMessage()">Click</button>
+        <br />
+        <!-- Inline javascript button -->
+        <h3 id="message2"></h3>
+        <button
+            type="button"
+            onclick="document.getElementById('message2').innerHTML = message"
+        >
+            Alternative Click
+        </button>
+    </body>
 </html>
