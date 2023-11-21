@@ -1,9 +1,26 @@
+var firstName = "Joaquin";
+var lastName = "Pacia";
+var fullName = firstName + " " + lastName;
+var yearOfBirth = 2003;
 var currentYear = 2023;
+var age = currentYear - yearOfBirth;
+var email = "joaquin.pacia@mail.utoronto.ca";
+var couponValue = 1000;
+var message;
+message =
+    "Welcome " +
+    fullName +
+    "!" +
+    " You have turned " +
+    age +
+    " years old. Congratulations for getting old. " +
+    "But worry not, we have a coupon for you." +
+    " We have sent you a $" +
+    couponValue +
+    " coupon to your email address: " +
+    "<a href=\"mailto:" + email + "\">" + email + "</a>";
+// window.alert();
 
-function calculateAge() {
-    var name = document.getElementById("name");
-    var date = document.getElementById("date");
-    var age = currentYear - date.value.toString().split("-")[0];
-    document.getElementById("customMessage").innerHTML =
-        "Hello " + name.value + " your age is " + age;
+function customMessage() {
+    document.getElementById("message").innerHTML = message;
 }
