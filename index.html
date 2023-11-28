@@ -4,29 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>CCT360 JavaScript Lab</title>
-        <script src="js/script.js">
-            var firstName = "Joaquin";
-            var lastName = "Pacia";
-            var fullName = firstName + " " + lastName;
-            var yearOfBirth = 2003;
-            var currentYear = 2023;
-            var age = currentYear - yearOfBirth;
-            var email = "joaquin.pacia@mail.utoronto.ca";
-            var couponValue = 1000;
-            var message;
-            message =
-                "Welcome " +
-                fullName +
-                "!" +
-                " You have turned " +
-                age +
-                " years old. Congratulations for getting old. " +
-                "But worry not, we have a coupon for you." +
-                " We have sent you a $" +
-                couponValue +
-                " coupon to your email address: " +
-                "<a href=\"mailto:" + email + "\">" + email + "</a>";
-        </script>
+        <script src="js/script.js"></script>
     </head>
     <body>
         <h1>Age calculator and birthday wishes system.</h1>
@@ -34,13 +12,8 @@
         <!-- External javascript button -->
         <button type="button" onclick="customMessage()">Click</button>
         <br />
-        <!-- Inline javascript button -->
-        <h3 id="message2"></h3>
-        <button
-            type="button"
-            onclick="document.getElementById('message2').innerHTML = message"
-        >
-            Alternative Click
-        </button>
+        <h1>ICCIT Students</h1>
+        <div id="students"></div>
+        <button type="button" onclick="document.getElementById('students').innerHTML = studentsList">Click</button>
     </body>
 </html>
