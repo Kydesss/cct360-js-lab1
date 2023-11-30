@@ -3,18 +3,55 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CCT360 JavaScript Lab</title>
-        <script src="js/script.js"></script>
+        <title>PRICE OF SINGLE COURSES</title>
     </head>
     <body>
-        <h1>Age calculator and birthday wishes system.</h1>
-        <h3 id="message"></h3>
-        <!-- External javascript button -->
-        <button type="button" onclick="customMessage()">Click</button>
-        <br />
-        <h1>Student Profile Information</h1>
-        <p id="profile"></p>
-        <button type="button" onclick="customProfile()">Person 1</button>
-        <button type="button" onclick="customProfile2()">Person 2</button>
+        <h1>PRICE OF SINGLE COURSES</h1>
+        <p id="msg"></p>
+        <script>
+            /* Create a single HTML page that includes a JS script that creates an object of properties that represent your program major,
+            including the total tuition, university fees, and academic expenses (such as books and equipment etc.).
+            Write a JS function that calculates the total cost per undergraduate course that you must take to graduate.
+            Show the variables and properties on the HTML page and clearly communicate what is being displayed.
+            */
+            var major = {
+                major1: "Technology, Coding & Society",
+                major2: "Communication, Culture Information & Technology",
+                totalTuition: 11420, // total tuition this year
+                universityFees: 2068.98, // university services, dental, health, upass, etc.
+                academicExpenses: 2035.12, // new computer/MacBook Air I bought this semester
+                /*
+                I don't pay by course, I pay the program fee (domestic) every school year.
+                Only during summer I pay for the courses I take.
+                */
+                totalCostPerYear: function () {
+                    return Math.round(
+                        this.totalTuition +
+                            this.universityFees +
+                            this.academicExpenses
+                    );
+                },
+            };
+            var message =
+                "First Major: " +
+                major.major1 +
+                "<br>" +
+                "Second Major: " +
+                major.major2 +
+                "<br>" +
+                "Total Tuition: $" +
+                major.totalTuition +
+                "<br>" +
+                "University Fees: $" +
+                major.universityFees +
+                "<br>" +
+                "Academic Expenses: $" +
+                major.academicExpenses +
+                "<br>" +
+                "Total Cost: $" +
+                major.totalCostPerYear() +
+                "<br>";
+            document.getElementById("msg").innerHTML = message;
+        </script>
     </body>
 </html>
