@@ -20,18 +20,19 @@
                 totalTuition: 11420, // total tuition this year
                 universityFees: 2068.98, // university services, dental, health, upass, etc.
                 academicExpenses: 2035.12, // new computer/MacBook Air I bought this semester
+                courseCostInSummer: 1142, // cost per course during the summer (used real data from my summer courses)
+                amountOfCoursesToGraduate: 40, // 40 courses with a 0.5 credit each to meet 20 credits to graduate.
                 /*
                 I don't pay by course, I pay the program fee (domestic) every school year.
                 Only during summer I pay for the courses I take.
                 */
-                totalCostPerYear: function () {
-                    return Math.round(
-                        this.totalTuition +
-                            this.universityFees +
-                            this.academicExpenses
-                    );
-                },
             };
+            var totalCostPerYear = function () {
+                return (
+                    major.courseCostInSummer * major.amountOfCoursesToGraduate
+                );
+            };
+
             var message =
                 "First Major: " +
                 major.major1 +
@@ -39,17 +40,23 @@
                 "Second Major: " +
                 major.major2 +
                 "<br>" +
-                "Total Tuition: $" +
+                "Total tuition per year for these programs: $" +
                 major.totalTuition +
                 "<br>" +
-                "University Fees: $" +
+                "University fees (university services, dental, health, upass, etc): $" +
                 major.universityFees +
                 "<br>" +
-                "Academic Expenses: $" +
+                "Academic expenses (books and equipment etc): $" +
                 major.academicExpenses +
                 "<br>" +
-                "Total Cost: $" +
-                major.totalCostPerYear() +
+                "Cost per course: $" +
+                major.courseCostInSummer +
+                "<br>" +
+                "Amount of courses to graduate: " +
+                major.amountOfCoursesToGraduate +
+                "<br>" +
+                "Total cost per undergraduate course to graduate: $" +
+                totalCostPerYear() +
                 "<br>";
             document.getElementById("msg").innerHTML = message;
         </script>
