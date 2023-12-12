@@ -4,8 +4,10 @@
         <div id="weather-output"></div>
         <script>
             window.onload = function () {
-                const apiKey = "7ec484dd2b3dc10be30d58fbae215e6f";
-                const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=${apiKey}`;
+                const apiKey = "58a18501e2a72e97ae941b615ae71216";
+                const lat = 43.5789;
+                const lon = -79.6583;
+                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
                 const outputElement = document.getElementById("weather-output");
 
