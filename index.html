@@ -1,39 +1,34 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <style></style>
-    </head>
-
+    <head> </head>
     <body>
-        <h1>Class Registration</h1>
-        <p id="message"></p>
-
+        <div id="weather-output"></div>
         <script>
-            var classCap = 40;
-            var classReg = 50;
-            var waitingQueue = 0;
-            function validateEnrollment(classCap, classReg) {
-                var spaceleft = classCap - classReg;
-                var registrationStatus;
+            window.onload = function () {
+                const apiKey = "7ec484dd2b3dc10be30d58fbae215e6f";
+                const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=${apiKey}`;
 
-                if (spaceleft > 0) {
-                    registrationStatus =
-                        "Welcome to class, you have been registered.";
-                } else {
-                    waitingQueue = classReg - classCap + 1;
-                    registrationStatus =
-                        "Unfortunately class is full, you have been added to the waitlist. You are no." +
-                        waitingQueue +
-                        " on the waitlist.";
-                }
+                const outputElement = document.getElementById("weather-output");
 
-                return registrationStatus;
-            }
-
-            document.getElementById("message").innerHTML = validateEnrollment(
-                classCap,
-                classReg
-            );
+                fetch(apiUrl)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        const temperature = data.main.temp - 273.15; // Convert from Kelvin to Celsius
+                        const description = data.weather[0].description;
+                        const location = data.name;
+                        outputElement.innerHTML = `<p>Temperature in ${location}: ${temperature.toFixed(
+                            2
+                        )}°C</p>
+                                    <p>Weather: ${description}</p>`;
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+            };
         </script>
     </body>
 </html>
